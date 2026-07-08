@@ -9,10 +9,10 @@ import Frota.Frota;
 import Talhoes.CadastroTalhao;
 import Talhoes.Talhao;
 
-import Registros.RegistrosService;
+import Registros.RegistrosServico;
 import Registros.RegistroColheita;
 
-public class RelatorioService {
+public class RelatorioServico {
 
     // RELATÓRIO DE FUNCIONÁRIOS
     public static void relatorioFuncionarios() {
@@ -130,7 +130,7 @@ public class RelatorioService {
 
         System.out.println("\n===== RELATÓRIO DE COLHEITA =====");
 
-        if (RegistrosService.totalRegistros == 0) {
+        if (RegistrosServico.totalRegistros == 0) {
 
             System.out.println("Nenhum registro encontrado.");
             return;
@@ -139,11 +139,11 @@ public class RelatorioService {
         double totalLitros = 0;
 
         for (int i = 0;
-             i < RegistrosService.totalRegistros;
+             i < RegistrosServico.totalRegistros;
              i++) {
 
             RegistroColheita registro =
-                    RegistrosService.registros[i];
+                    RegistrosServico.registros[i];
 
             System.out.println("----------------------------------");
 
@@ -189,7 +189,7 @@ public class RelatorioService {
                 + CadastroTalhao.totalTalhoes);
 
         System.out.println("Registros de colheita: "
-                + RegistrosService.totalRegistros);
+                + RegistrosServico.totalRegistros);
     }
     public static void relatorioQuinzena() {
 
@@ -197,7 +197,7 @@ public class RelatorioService {
         "\n===== ACERTO DA QUINZENA ====="
     );
 
-    if (RegistrosService.totalRegistros == 0) {
+    if (RegistrosServico.totalRegistros == 0) {
 
         System.out.println(
             "Nenhum registro encontrado."
@@ -216,11 +216,11 @@ public class RelatorioService {
         double totalLitros = 0;
 
         for (int j = 0;
-             j < RegistrosService.totalRegistros;
+             j < RegistrosServico.totalRegistros;
              j++) {
 
             RegistroColheita registro =
-                    RegistrosService.registros[j];
+                    RegistrosServico.registros[j];
 
             if (registro.matriculaFuncionario
                     .equalsIgnoreCase(
@@ -254,11 +254,11 @@ public class RelatorioService {
         double totalProduzido = 0;
 
         for (int j = 0;
-             j < RegistrosService.totalRegistros;
+             j < RegistrosServico.totalRegistros;
              j++) {
 
             RegistroColheita registro =
-                    RegistrosService.registros[j];
+                    RegistrosServico.registros[j];
 
             if (registro.codigoTalhao
                     .equalsIgnoreCase(
@@ -308,11 +308,11 @@ public class RelatorioService {
     double terreiro = 0;
 
     for (int i = 0;
-         i < RegistrosService.totalRegistros;
+         i < RegistrosServico.totalRegistros;
          i++) {
 
         RegistroColheita registro =
-                RegistrosService.registros[i];
+                RegistrosServico.registros[i];
 
         // TRANSFORMA EM MINÚSCULO
         String destino =

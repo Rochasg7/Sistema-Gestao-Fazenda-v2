@@ -9,7 +9,7 @@ import Frota.Frota;
 import Talhoes.CadastroTalhao;
 import Talhoes.Talhao;
 
-public class RegistrosService {
+public class RegistrosServico {
 
     // Scanner utilizado para leitura dos dados
     static Scanner sc = new Scanner(System.in);
