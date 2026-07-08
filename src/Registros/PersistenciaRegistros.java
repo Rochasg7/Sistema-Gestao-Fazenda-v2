@@ -17,10 +17,10 @@ public class PersistenciaRegistros {
                     new FileWriter("banco/registros.csv");
 
             // Percorre todos os registros cadastrados
-            for (int i = 0; i < RegistrosService.totalRegistros; i++) {
+            for (int i = 0; i < RegistrosServico.totalRegistros; i++) {
 
                 RegistroColheita registro =
-                        RegistrosService.registros[i];
+                        RegistrosServico.registros[i];
 
                 // Escreve os dados separados por ";"
                 writer.write(
@@ -80,12 +80,12 @@ public class PersistenciaRegistros {
                 registro.destino = partes[5];
 
                 // Armazena o registro no vetor
-                RegistrosService.registros[
-                        RegistrosService.totalRegistros
+                RegistrosServico.registros[
+                        RegistrosServico.totalRegistros
                 ] = registro;
 
                 // Incrementa o contador de registros
-                RegistrosService.totalRegistros++;
+                RegistrosServico.totalRegistros++;
             }
 
             // Fecha o leitor após finalizar

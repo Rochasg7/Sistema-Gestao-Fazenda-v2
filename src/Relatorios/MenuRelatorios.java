@@ -29,31 +29,31 @@ public class MenuRelatorios {
             switch (opcao) {
 
                 case 1:
-                    RelatorioService.relatorioFuncionarios();
+                    RelatorioServico.relatorioFuncionarios();
                     break;
 
                 case 2:
-                    RelatorioService.relatorioFrota();
+                    RelatorioServico.relatorioFrota();
                     break;
 
                 case 3:
-                    RelatorioService.relatorioTalhoes();
+                    RelatorioServico.relatorioTalhoes();
                     break;
 
                 case 4:
-                    RelatorioService.relatorioColheita();
+                    RelatorioServico.relatorioColheita();
                     break;
 
                 case 5:
-                    RelatorioService.relatorioGeral();
+                    RelatorioServico.relatorioGeral();
                     break;
                 case 6:
-                    RelatorioService.relatorioQuinzena();
+                    RelatorioServico.relatorioQuinzena();
                     break;
 
 
                 case 7:
-                    RelatorioService.relatorioSecagem();
+                    RelatorioServico.relatorioSecagem();
                     break;
 
                 case 0:
