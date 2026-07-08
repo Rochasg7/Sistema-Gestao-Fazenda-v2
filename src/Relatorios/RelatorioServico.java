@@ -14,333 +14,445 @@ import Registros.RegistroColheita;
 
 public class RelatorioServico {
 
-    // RELATÓRIO DE FUNCIONÁRIOS
-    public static void relatorioFuncionarios() {
+        // RELATÓRIO DE FUNCIONÁRIOS
+        public static void relatorioFuncionarios() {
 
-        System.out.println("\n===== RELATÓRIO DE FUNCIONÁRIOS =====");
+                System.out.println("\n===== RELATÓRIO DE FUNCIONÁRIOS =====");
 
-        if (CadastroFuncionario.totalFuncionarios == 0) {
+                if (CadastroFuncionario.totalFuncionarios == 0) {
 
-            System.out.println("Nenhum funcionário cadastrado.");
-            return;
+                        System.out.println("Nenhum funcionário cadastrado.");
+                        return;
+                }
+
+                for (int i = 0; i < CadastroFuncionario.totalFuncionarios; i++) {
+
+                        Funcionario funcionario = CadastroFuncionario.funcionarios[i];
+
+                        System.out.println("----------------------------------");
+
+                        System.out.println("Nome: "
+                                        + funcionario.nome);
+
+                        System.out.println("Matrícula: "
+                                        + funcionario.matricula);
+
+                        System.out.println("Tipo de Contrato: "
+                                        + funcionario.tipoContrato);
+                }
+
+                System.out.println("----------------------------------");
+
+                System.out.println("Total de funcionários: "
+                                + CadastroFuncionario.totalFuncionarios);
         }
 
-        for (int i = 0;
-             i < CadastroFuncionario.totalFuncionarios;
-             i++) {
+        // RELATÓRIO DA FROTA
+        public static void relatorioFrota() {
 
-            Funcionario funcionario =
-                    CadastroFuncionario.funcionarios[i];
+                System.out.println("\n===== RELATÓRIO DA FROTA =====");
 
-            System.out.println("----------------------------------");
+                if (CadastroFrota.totalTratores == 0) {
 
-            System.out.println("Nome: "
-                    + funcionario.nome);
+                        System.out.println("Nenhum trator cadastrado.");
+                        return;
+                }
 
-            System.out.println("Matrícula: "
-                    + funcionario.matricula);
+                for (int i = 0; i < CadastroFrota.totalTratores; i++) {
 
-            System.out.println("Tipo de Contrato: "
-                    + funcionario.tipoContrato);
+                        Frota trator = CadastroFrota.tratores[i];
+
+                        System.out.println("----------------------------------");
+
+                        System.out.println("Placa: "
+                                        + trator.placa);
+
+                        System.out.println("Capacidade: "
+                                        + trator.capacidade + " litros");
+                }
+
+                System.out.println("----------------------------------");
+
+                System.out.println("Total de tratores: "
+                                + CadastroFrota.totalTratores);
         }
 
-        System.out.println("----------------------------------");
+        // RELATÓRIO DE TALHÕES
+        public static void relatorioTalhoes() {
 
-        System.out.println("Total de funcionários: "
-                + CadastroFuncionario.totalFuncionarios);
-    }
+                System.out.println("\n===== RELATÓRIO DE TALHÕES =====");
 
-    // RELATÓRIO DA FROTA
-    public static void relatorioFrota() {
+                if (CadastroTalhao.totalTalhoes == 0) {
 
-        System.out.println("\n===== RELATÓRIO DA FROTA =====");
+                        System.out.println("Nenhum talhão cadastrado.");
+                        return;
+                }
 
-        if (CadastroFrota.totalTratores == 0) {
+                for (int i = 0; i < CadastroTalhao.totalTalhoes; i++) {
 
-            System.out.println("Nenhum trator cadastrado.");
-            return;
+                        Talhao talhao = CadastroTalhao.talhoes[i];
+
+                        System.out.println("----------------------------------");
+
+                        System.out.println("Código: "
+                                        + talhao.codigo);
+
+                        System.out.println("Nome: "
+                                        + talhao.nome);
+
+                        System.out.println("Variedade do Café: "
+                                        + talhao.variedadeCafe);
+
+                        System.out.println("Estimativa: "
+                                        + talhao.estimativaLitros + " litros");
+
+                        System.out.println("Produção Atual: "
+                                        + talhao.producaoAtual + " litros");
+                }
+
+                System.out.println("----------------------------------");
+
+                System.out.println("Total de talhões: "
+                                + CadastroTalhao.totalTalhoes);
         }
 
-        for (int i = 0;
-             i < CadastroFrota.totalTratores;
-             i++) {
+        // RELATÓRIO DE COLHEITA
+        public static void relatorioColheita() {
 
-            Frota trator =
-                    CadastroFrota.tratores[i];
+                System.out.println("\n===== RELATÓRIO DE COLHEITA =====");
 
-            System.out.println("----------------------------------");
+                if (RegistrosService.totalRegistros == 0) {
 
-            System.out.println("Placa: "
-                    + trator.placa);
+                        System.out.println("Nenhum registro encontrado.");
+                        return;
+                }
 
-            System.out.println("Capacidade: "
-                    + trator.capacidade + " litros");
+                double totalLitros = 0;
+
+                for (int i = 0; i < RegistrosService.totalRegistros; i++) {
+
+                        RegistroColheita registro = RegistrosService.registros[i];
+
+                        System.out.println("----------------------------------");
+
+                        System.out.println("Data: "
+                                        + registro.data);
+
+                        System.out.println("Funcionário: "
+                                        + registro.matriculaFuncionario);
+
+                        System.out.println("Talhão: "
+                                        + registro.codigoTalhao);
+
+                        System.out.println("Trator: "
+                                        + registro.placaTrator);
+
+                        System.out.println("Litros Colhidos: "
+                                        + registro.litros);
+
+                        System.out.println("Destino: "
+                                        + registro.destino);
+
+                        totalLitros += registro.litros;
+                }
+
+                System.out.println("----------------------------------");
+
+                System.out.println("Total colhido: "
+                                + totalLitros + " litros");
         }
 
-        System.out.println("----------------------------------");
+        // RELATÓRIO GERAL
+        public static void relatorioGeral() {
 
-        System.out.println("Total de tratores: "
-                + CadastroFrota.totalTratores);
-    }
+                System.out.println("\n===== RELATÓRIO GERAL DA FAZENDA =====");
 
-    // RELATÓRIO DE TALHÕES
-    public static void relatorioTalhoes(){
+                System.out.println("Funcionários cadastrados: "
+                                + CadastroFuncionario.totalFuncionarios);
 
-        System.out.println("\n===== RELATÓRIO DE TALHÕES =====");
+                System.out.println("Tratores cadastrados: "
+                                + CadastroFrota.totalTratores);
 
-        if (CadastroTalhao.totalTalhoes == 0) {
+                System.out.println("Talhões cadastrados: "
+                                + CadastroTalhao.totalTalhoes);
 
-            System.out.println("Nenhum talhão cadastrado.");
-            return;
+                System.out.println("Registros de colheita: "
+                                + RegistrosService.totalRegistros);
         }
 
-        for (int i = 0;
-             i < CadastroTalhao.totalTalhoes;
-             i++) {
+        public static void relatorioQuinzena() {
 
-            Talhao talhao =
-                    CadastroTalhao.talhoes[i];
+                System.out.println(
+                                "\n===== ACERTO DA QUINZENA =====");
 
-            System.out.println("----------------------------------");
+                if (RegistrosService.totalRegistros == 0) {
 
-            System.out.println("Código: "
-                    + talhao.codigo);
+                        System.out.println(
+                                        "Nenhum registro encontrado.");
 
-            System.out.println("Nome: "
-                    + talhao.nome);
+                        return;
+                }
 
-            System.out.println("Variedade do Café: "
-                    + talhao.variedadeCafe);
+                for (int i = 0; i < CadastroFuncionario.totalFuncionarios; i++) {
 
-            System.out.println("Estimativa: "
-                    + talhao.estimativaLitros + " litros");
+                        Funcionario funcionario = CadastroFuncionario.funcionarios[i];
 
-            System.out.println("Produção Atual: "
-                    + talhao.producaoAtual + " litros");
+                        double totalLitros = 0;
+
+                        for (int j = 0; j < RegistrosService.totalRegistros; j++) {
+
+                                RegistroColheita registro = RegistrosService.registros[j];
+
+                                if (registro.matriculaFuncionario
+                                                .equalsIgnoreCase(
+                                                                funcionario.matricula)) {
+
+                                        totalLitros += registro.litros;
+                                }
+                        }
+
+                        System.out.println(
+                                        funcionario.nome
+                                                        + " -> "
+                                                        + totalLitros
+                                                        + " litros");
+                }
         }
 
-        System.out.println("----------------------------------");
+        public static void relatorioTalhao() {
 
-        System.out.println("Total de talhões: "
-                + CadastroTalhao.totalTalhoes);
-    }
+                System.out.println(
+                                "\n===== FECHAMENTO DOS TALHÕES =====");
 
-    // RELATÓRIO DE COLHEITA
-    public static void relatorioColheita() {
+                for (int i = 0; i < CadastroTalhao.totalTalhoes; i++) {
 
-        System.out.println("\n===== RELATÓRIO DE COLHEITA =====");
+                        Talhao talhao = CadastroTalhao.talhoes[i];
 
         if (RegistrosServico.totalRegistros == 0) {
 
-            System.out.println("Nenhum registro encontrado.");
-            return;
+                        for (int j = 0; j < RegistrosService.totalRegistros; j++) {
+
+                                RegistroColheita registro = RegistrosService.registros[j];
+
+                                if (registro.codigoTalhao
+                                                .equalsIgnoreCase(
+                                                                talhao.codigo)) {
+
+                                        totalProduzido += registro.litros;
+                                }
+                        }
+
+                        System.out.println("\nTalhão: "
+                                        + talhao.nome);
+
+                        System.out.println(
+                                        "Produção Atual: "
+                                                        + totalProduzido
+                                                        + " litros");
+
+                        System.out.println(
+                                        "Estimativa: "
+                                                        + talhao.estimativaLitros
+                                                        + " litros");
+
+                        if (totalProduzido >= talhao.estimativaLitros) {
+
+                                System.out.println(
+                                                "Meta atingida ✅");
+
+                        } else {
+
+                                System.out.println(
+                                                "Meta não atingida ❌");
+                        }
+                }
         }
 
-        double totalLitros = 0;
+        public static void relatorioSecagem() {
 
-        for (int i = 0;
-             i < RegistrosServico.totalRegistros;
-             i++) {
+                for (int i = 0; i < RegistrosServico.totalRegistros; i++) {
 
-            RegistroColheita registro =
-                    RegistrosServico.registros[i];
+                        RegistroColheita registro = RegistrosServico.registros[i];
 
-            System.out.println("----------------------------------");
+                        for (int i = 0; i < RegistrosService.totalRegistros; i++) {
 
-            System.out.println("Data: "
-                    + registro.data);
+                                RegistroColheita registro = RegistrosService.registros[i];
 
-            System.out.println("Funcionário: "
-                    + registro.matriculaFuncionario);
+                                // TRANSFORMA EM MINÚSCULO
+                                String destino = registro.destino.toLowerCase();
 
-            System.out.println("Talhão: "
-                    + registro.codigoTalhao);
+                                // VERIFICA SECADOR
+                                if (destino.contains("secador")) {
 
-            System.out.println("Trator: "
-                    + registro.placaTrator);
+                                        secador += registro.litros;
+                                }
 
-            System.out.println("Litros Colhidos: "
-                    + registro.litros);
+                                // VERIFICA TERREIRO
+                                else if (destino.contains("terreiro")) {
 
-            System.out.println("Destino: "
-                    + registro.destino);
+                                        terreiro += registro.litros;
+                                }
+                        }
 
-            totalLitros += registro.litros;
+                        System.out.println(
+                                        "Secador: "
+                                                        + secador
+                                                        + " litros");
+
+                        System.out.println(
+                                        "Terreiro: "
+                                                        + terreiro
+                                                        + " litros");
+                }
+
+                System.out.println("----------------------------------");
+
+                System.out.println("Total colhido: "
+                                + totalLitros + " litros");
         }
 
-        System.out.println("----------------------------------");
+        // RELATÓRIO GERAL
+        public static void relatorioGeral() {
 
-        System.out.println("Total colhido: "
-                + totalLitros + " litros");
-    }
+                System.out.println("\n===== RELATÓRIO GERAL DA FAZENDA =====");
 
-    // RELATÓRIO GERAL
-    public static void relatorioGeral() {
+                System.out.println("Funcionários cadastrados: "
+                                + CadastroFuncionario.totalFuncionarios);
 
-        System.out.println("\n===== RELATÓRIO GERAL DA FAZENDA =====");
+                System.out.println("Tratores cadastrados: "
+                                + CadastroFrota.totalTratores);
 
-        System.out.println("Funcionários cadastrados: "
-                + CadastroFuncionario.totalFuncionarios);
+                System.out.println("Talhões cadastrados: "
+                                + CadastroTalhao.totalTalhoes);
 
-        System.out.println("Tratores cadastrados: "
-                + CadastroFrota.totalTratores);
-
-        System.out.println("Talhões cadastrados: "
-                + CadastroTalhao.totalTalhoes);
-
-        System.out.println("Registros de colheita: "
-                + RegistrosServico.totalRegistros);
-    }
-    public static void relatorioQuinzena() {
-
-    System.out.println(
-        "\n===== ACERTO DA QUINZENA ====="
-    );
-
-    if (RegistrosServico.totalRegistros == 0) {
-
-        System.out.println(
-            "Nenhum registro encontrado."
-        );
-
-        return;
-    }
-
-    for (int i = 0;
-         i < CadastroFuncionario.totalFuncionarios;
-         i++) {
-
-        Funcionario funcionario =
-                CadastroFuncionario.funcionarios[i];
-
-        double totalLitros = 0;
-
-        for (int j = 0;
-             j < RegistrosServico.totalRegistros;
-             j++) {
-
-            RegistroColheita registro =
-                    RegistrosServico.registros[j];
-
-            if (registro.matriculaFuncionario
-                    .equalsIgnoreCase(
-                        funcionario.matricula)) {
-
-                totalLitros += registro.litros;
-            }
+                System.out.println("Registros de colheita: "
+                                + RegistrosServico.totalRegistros);
         }
 
-        System.out.println(
-            funcionario.nome
-            + " -> "
-            + totalLitros
-            + " litros"
-        );
-        }
-    }
-    public static void relatorioTalhao() {
+        public static void relatorioQuinzena() {
 
-    System.out.println(
-        "\n===== FECHAMENTO DOS TALHÕES ====="
-    );
+                System.out.println(
+                                "\n===== ACERTO DA QUINZENA =====");
 
-    for (int i = 0;
-         i < CadastroTalhao.totalTalhoes;
-         i++) {
+                if (RegistrosServico.totalRegistros == 0) {
 
-        Talhao talhao =
-                CadastroTalhao.talhoes[i];
+                        System.out.println(
+                                        "Nenhum registro encontrado.");
 
-        double totalProduzido = 0;
+                        return;
+                }
 
-        for (int j = 0;
-             j < RegistrosServico.totalRegistros;
-             j++) {
+                for (int i = 0; i < CadastroFuncionario.totalFuncionarios; i++) {
 
-            RegistroColheita registro =
-                    RegistrosServico.registros[j];
+                        Funcionario funcionario = CadastroFuncionario.funcionarios[i];
 
-            if (registro.codigoTalhao
-                    .equalsIgnoreCase(
-                        talhao.codigo)) {
+                        double totalLitros = 0;
 
-                totalProduzido += registro.litros;
-            }
-        }
+                        for (int j = 0; j < RegistrosServico.totalRegistros; j++) {
 
-        System.out.println("\nTalhão: "
-                + talhao.nome);
+                                RegistroColheita registro = RegistrosServico.registros[j];
 
-        System.out.println(
-            "Produção Atual: "
-            + totalProduzido
-            + " litros"
-        );
+                                if (registro.matriculaFuncionario
+                                                .equalsIgnoreCase(
+                                                                funcionario.matricula)) {
 
-        System.out.println(
-            "Estimativa: "
-            + talhao.estimativaLitros
-            + " litros"
-        );
+                                        totalLitros += registro.litros;
+                                }
+                        }
 
-        if (totalProduzido
-                >= talhao.estimativaLitros) {
-
-            System.out.println(
-                "Meta atingida ✅"
-            );
-
-        } else {
-
-            System.out.println(
-                "Meta não atingida ❌"
-            );
-        }
-    }
-    }
-    public static void relatorioSecagem() {
-
-        System.out.println(
-            "\n===== RELATÓRIO DE SECAGEM ====="
-        );
-
-    double secador = 0;
-    double terreiro = 0;
-
-    for (int i = 0;
-         i < RegistrosServico.totalRegistros;
-         i++) {
-
-        RegistroColheita registro =
-                RegistrosServico.registros[i];
-
-        // TRANSFORMA EM MINÚSCULO
-        String destino =
-                registro.destino.toLowerCase();
-
-        // VERIFICA SECADOR
-        if (destino.contains("secador")) {
-
-            secador += registro.litros;
+                        System.out.println(
+                                        funcionario.nome
+                                                        + " -> "
+                                                        + totalLitros
+                                                        + " litros");
+                }
         }
 
-        // VERIFICA TERREIRO
-        else if (destino.contains("terreiro")) {
+        public static void relatorioTalhao() {
 
-            terreiro += registro.litros;
+                System.out.println(
+                                "\n===== FECHAMENTO DOS TALHÕES =====");
+
+                for (int i = 0; i < CadastroTalhao.totalTalhoes; i++) {
+
+                        Talhao talhao = CadastroTalhao.talhoes[i];
+
+                        double totalProduzido = 0;
+
+                        for (int j = 0; j < RegistrosServico.totalRegistros; j++) {
+
+                                RegistroColheita registro = RegistrosServico.registros[j];
+
+                                if (registro.codigoTalhao
+                                                .equalsIgnoreCase(
+                                                                talhao.codigo)) {
+
+                                        totalProduzido += registro.litros;
+                                }
+                        }
+
+                        System.out.println("\nTalhão: "
+                                        + talhao.nome);
+
+                        System.out.println(
+                                        "Produção Atual: "
+                                                        + totalProduzido
+                                                        + " litros");
+
+                        System.out.println(
+                                        "Estimativa: "
+                                                        + talhao.estimativaLitros
+                                                        + " litros");
+
+                        if (totalProduzido >= talhao.estimativaLitros) {
+
+                                System.out.println(
+                                                "Meta atingida ✅");
+
+                        } else {
+
+                                System.out.println(
+                                                "Meta não atingida ❌");
+                        }
+                }
         }
-    }
 
-    System.out.println(
-        "Secador: "
-        + secador
-        + " litros"
-    );
+        public static void relatorioSecagem() {
 
-    System.out.println(
-        "Terreiro: "
-        + terreiro
-        + " litros"
-    );
-}
+                System.out.println(
+                                "\n===== RELATÓRIO DE SECAGEM =====");
+
+                double secador = 0;
+                double terreiro = 0;
+
+                for (int i = 0; i < RegistrosServico.totalRegistros; i++) {
+
+                        RegistroColheita registro = RegistrosServico.registros[i];
+
+                        // TRANSFORMA EM MINÚSCULO
+                        String destino = registro.destino.toLowerCase();
+
+                        // VERIFICA SECADOR
+                        if (destino.contains("secador")) {
+
+                                secador += registro.litros;
+                        }
+
+                        // VERIFICA TERREIRO
+                        else if (destino.contains("terreiro")) {
+
+                                terreiro += registro.litros;
+                        }
+                }
+
+                System.out.println(
+                                "Secador: "
+                                                + secador
+                                                + " litros");
+
+                System.out.println(
+                                "Terreiro: "
+                                                + terreiro
+                                                + " litros");
+        }
 }

@@ -13,24 +13,26 @@ public class PersistenciaRegistros {
         try {
 
             // Cria/abre o arquivo CSV onde os registros serão salvos
-            FileWriter writer =
-                    new FileWriter("banco/registros.csv");
+            FileWriter writer = new FileWriter("banco/registros.csv");
 
             // Percorre todos os registros cadastrados
             for (int i = 0; i < RegistrosServico.totalRegistros; i++) {
 
+<<<<<<< HEAD
                 RegistroColheita registro =
                         RegistrosServico.registros[i];
+=======
+                RegistroColheita registro = RegistrosService.registros[i];
+>>>>>>> 53e83bc45e3ddfb4523c6c3edc45e555653d6bef
 
                 // Escreve os dados separados por ";"
                 writer.write(
                         registro.data + ";" +
-                        registro.matriculaFuncionario + ";" +
-                        registro.codigoTalhao + ";" +
-                        registro.placaTrator + ";" +
-                        registro.litros + ";" +
-                        registro.destino
-                );
+                                registro.matriculaFuncionario + ";" +
+                                registro.codigoTalhao + ";" +
+                                registro.placaTrator + ";" +
+                                registro.litros + ";" +
+                                registro.destino);
 
                 // Quebra de linha para separar os registros
                 writer.write("\n");
@@ -53,11 +55,9 @@ public class PersistenciaRegistros {
         try {
 
             // Abre o arquivo CSV para leitura
-            File arquivo =
-                    new File("banco/registros.csv");
+            File arquivo = new File("banco/registros.csv");
 
-            Scanner leitor =
-                    new Scanner(arquivo);
+            Scanner leitor = new Scanner(arquivo);
 
             // Lê linha por linha do arquivo
             while (leitor.hasNextLine()) {
@@ -67,22 +67,24 @@ public class PersistenciaRegistros {
                 // Divide os dados utilizando ";" como separador
                 String[] partes = linha.split(";");
 
-                RegistroColheita registro =
-                        new RegistroColheita();
+                RegistroColheita registro = new RegistroColheita();
 
                 // Recupera os dados do arquivo
                 registro.data = partes[0];
                 registro.matriculaFuncionario = partes[1];
                 registro.codigoTalhao = partes[2];
                 registro.placaTrator = partes[3];
-                registro.litros =
-                        Double.parseDouble(partes[4]);
+                registro.litros = Double.parseDouble(partes[4]);
                 registro.destino = partes[5];
 
                 // Armazena o registro no vetor
+<<<<<<< HEAD
                 RegistrosServico.registros[
                         RegistrosServico.totalRegistros
                 ] = registro;
+=======
+                RegistrosService.registros[RegistrosService.totalRegistros] = registro;
+>>>>>>> 53e83bc45e3ddfb4523c6c3edc45e555653d6bef
 
                 // Incrementa o contador de registros
                 RegistrosServico.totalRegistros++;
