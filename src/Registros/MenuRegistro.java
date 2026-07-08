@@ -1,24 +1,23 @@
-package Talhoes;
+package Registros;
 
 import java.util.Scanner;
 
-public class MenuTalhao {
+public class MenuRegistro {
 
     // Scanner utilizado para leitura das opções do menu
     static Scanner sc = new Scanner(System.in);
 
-    // MENU TALHÕES
-    public static void abrirMenuTalhao() {
+    // MENU DE REGISTROS DE COLHEITA
+    public static void abrirMenuRegistro() {
 
         int opcao;
 
         do {
 
-            System.out.println("\n===== MENU TALHÕES =====");
+            System.out.println("\n===== MENU COLHEITA =====");
 
-            System.out.println("1 - Cadastrar Talhão");
-            System.out.println("2 - Listar Talhões");
-            System.out.println("3 - Buscar Talhão");
+            System.out.println("1 - Registrar Colheita");
+            System.out.println("2 - Listar Registros");
             System.out.println("0 - Voltar");
 
             System.out.print("Opção: ");
@@ -32,17 +31,14 @@ public class MenuTalhao {
 
                 case 1:
 
-                    CadastroTalhao.cadastrarTalhao();
+                    // Abre o cadastro de registros de colheita
+                    RegistroServico.registrarColheita();
                     break;
 
                 case 2:
 
-                    CadastroTalhao.listarTalhoes();
-                    break;
-
-                case 3:
-
-                    CadastroTalhao.buscarTalhao();
+                    // Lista todos os registros cadastrados
+                    RegistroServico.listarRegistros();
                     break;
 
                 case 0:
