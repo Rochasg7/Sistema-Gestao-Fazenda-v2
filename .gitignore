@@ -1,0 +1,11 @@
+# VS Code
+.vscode/
+
+# Arquivos compilados
+bin/
+
+# Arquivos temporários
+*.class
+
+# Logs
+*.log
