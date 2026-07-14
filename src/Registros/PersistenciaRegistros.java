@@ -18,12 +18,8 @@ public class PersistenciaRegistros {
             // Percorre todos os registros cadastrados
             for (int i = 0; i < RegistrosServico.totalRegistros; i++) {
 
-<<<<<<< HEAD
                 RegistroColheita registro =
                         RegistrosServico.registros[i];
-=======
-                RegistroColheita registro = RegistrosService.registros[i];
->>>>>>> 53e83bc45e3ddfb4523c6c3edc45e555653d6bef
 
                 // Escreve os dados separados por ";"
                 writer.write(
@@ -78,13 +74,9 @@ public class PersistenciaRegistros {
                 registro.destino = partes[5];
 
                 // Armazena o registro no vetor
-<<<<<<< HEAD
                 RegistrosServico.registros[
                         RegistrosServico.totalRegistros
                 ] = registro;
-=======
-                RegistrosService.registros[RegistrosService.totalRegistros] = registro;
->>>>>>> 53e83bc45e3ddfb4523c6c3edc45e555653d6bef
 
                 // Incrementa o contador de registros
                 RegistrosServico.totalRegistros++;

@@ -121,7 +121,7 @@ public class RelatorioServico {
 
                 System.out.println("\n===== RELATÓRIO DE COLHEITA =====");
 
-                if (RegistrosService.totalRegistros == 0) {
+                if (RegistrosServico.totalRegistros == 0) {
 
                         System.out.println("Nenhum registro encontrado.");
                         return;
@@ -129,9 +129,9 @@ public class RelatorioServico {
 
                 double totalLitros = 0;
 
-                for (int i = 0; i < RegistrosService.totalRegistros; i++) {
+                for (int i = 0; i < RegistrosServico.totalRegistros; i++) {
 
-                        RegistroColheita registro = RegistrosService.registros[i];
+                        RegistroColheita registro = RegistrosServico.registros[i];
 
                         System.out.println("----------------------------------");
 
@@ -163,7 +163,7 @@ public class RelatorioServico {
         }
 
         // RELATÓRIO GERAL
-        public static void relatorioGeral() {
+        public static void RelatorioGeral() {
 
                 System.out.println("\n===== RELATÓRIO GERAL DA FAZENDA =====");
 
@@ -177,15 +177,15 @@ public class RelatorioServico {
                                 + CadastroTalhao.totalTalhoes);
 
                 System.out.println("Registros de colheita: "
-                                + RegistrosService.totalRegistros);
+                                + RegistrosServico.totalRegistros);
         }
 
-        public static void relatorioQuinzena() {
+        public static void RelatorioQuinzena() {
 
                 System.out.println(
                                 "\n===== ACERTO DA QUINZENA =====");
 
-                if (RegistrosService.totalRegistros == 0) {
+                if (RegistrosServico.totalRegistros == 0) {
 
                         System.out.println(
                                         "Nenhum registro encontrado.");
@@ -199,9 +199,9 @@ public class RelatorioServico {
 
                         double totalLitros = 0;
 
-                        for (int j = 0; j < RegistrosService.totalRegistros; j++) {
+                        for (int j = 0; j < RegistrosServico.totalRegistros; j++) {
 
-                                RegistroColheita registro = RegistrosService.registros[j];
+                                RegistroColheita registro = RegistrosServico.registros[j];
 
                                 if (registro.matriculaFuncionario
                                                 .equalsIgnoreCase(
@@ -219,98 +219,59 @@ public class RelatorioServico {
                 }
         }
 
-        public static void relatorioTalhao() {
+        public static void RelatorioTalhao() {
 
-                System.out.println(
-                                "\n===== FECHAMENTO DOS TALHÕES =====");
+                System.out.println("\n===== FECHAMENTO DOS TALHÕES =====");
 
-                for (int i = 0; i < CadastroTalhao.totalTalhoes; i++) {
+                        for (int i = 0; i < CadastroTalhao.totalTalhoes; i++) {
 
-                        Talhao talhao = CadastroTalhao.talhoes[i];
+                                Talhao talhao = CadastroTalhao.talhoes[i];
 
-        if (RegistrosServico.totalRegistros == 0) {
+                                                double totalProduzido = 0;
 
-                        for (int j = 0; j < RegistrosService.totalRegistros; j++) {
+                        for (int j = 0; j < RegistrosServico.totalRegistros; j++) {
 
-                                RegistroColheita registro = RegistrosService.registros[j];
+                                RegistroColheita registro = RegistrosServico.registros[j];
 
-                                if (registro.codigoTalhao
-                                                .equalsIgnoreCase(
-                                                                talhao.codigo)) {
-
+                        if (registro.codigoTalhao.equalsIgnoreCase(talhao.codigo)) {
                                         totalProduzido += registro.litros;
-                                }
-                        }
+            }
+        }
 
-                        System.out.println("\nTalhão: "
-                                        + talhao.nome);
-
-                        System.out.println(
-                                        "Produção Atual: "
-                                                        + totalProduzido
-                                                        + " litros");
-
-                        System.out.println(
-                                        "Estimativa: "
-                                                        + talhao.estimativaLitros
-                                                        + " litros");
+                System.out.println("\nTalhão: " + talhao.nome);
+                System.out.println("Produção Atual: " + totalProduzido + " litros");
+                System.out.println("Estimativa: " + talhao.estimativaLitros + " litros");
 
                         if (totalProduzido >= talhao.estimativaLitros) {
-
-                                System.out.println(
-                                                "Meta atingida ✅");
-
-                        } else {
-
-                                System.out.println(
-                                                "Meta não atingida ❌");
-                        }
-                }
+                System.out.println("Meta atingida ✅");
+        } else {
+                System.out.println("Meta não atingida ❌");
         }
+    }
+}
+        public static void RelatorioSecagem() {
 
-        public static void relatorioSecagem() {
+                System.out.println("\n===== RELATÓRIO DE SECAGEM =====");
 
-                for (int i = 0; i < RegistrosServico.totalRegistros; i++) {
+                double secador = 0;
+                double terreiro = 0;
 
-                        RegistroColheita registro = RegistrosServico.registros[i];
+                        for (int i = 0; i < RegistrosServico.totalRegistros; i++) {
 
-                        for (int i = 0; i < RegistrosService.totalRegistros; i++) {
+                                RegistroColheita registro = RegistrosServico.registros[i];
 
-                                RegistroColheita registro = RegistrosService.registros[i];
+                         String destino = registro.destino.toLowerCase();
 
-                                // TRANSFORMA EM MINÚSCULO
-                                String destino = registro.destino.toLowerCase();
-
-                                // VERIFICA SECADOR
-                                if (destino.contains("secador")) {
-
-                                        secador += registro.litros;
-                                }
-
-                                // VERIFICA TERREIRO
-                                else if (destino.contains("terreiro")) {
-
-                                        terreiro += registro.litros;
-                                }
+                        if (destino.contains("secador")) {
+                                secador += registro.litros;
+                        } else if (destino.contains("terreiro")) {
+                                terreiro += registro.litros;
                         }
+    }
 
-                        System.out.println(
-                                        "Secador: "
-                                                        + secador
-                                                        + " litros");
-
-                        System.out.println(
-                                        "Terreiro: "
-                                                        + terreiro
-                                                        + " litros");
-                }
-
-                System.out.println("----------------------------------");
-
-                System.out.println("Total colhido: "
-                                + totalLitros + " litros");
-        }
-
+                System.out.println("Secador: " + secador + " litros");
+                System.out.println("Terreiro: " + terreiro + " litros");
+}
         // RELATÓRIO GERAL
         public static void relatorioGeral() {
 

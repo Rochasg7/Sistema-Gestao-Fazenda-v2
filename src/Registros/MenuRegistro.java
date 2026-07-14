@@ -32,13 +32,13 @@ public class MenuRegistro {
                 case 1:
 
                     // Abre o cadastro de registros de colheita
-                    RegistroServico.registrarColheita();
+                    RegistrosServico.registrarColheita();
                     break;
 
                 case 2:
 
                     // Lista todos os registros cadastrados
-                    RegistroServico.listarRegistros();
+                    RegistrosServico.listarRegistros();
                     break;
 
                 case 0:
