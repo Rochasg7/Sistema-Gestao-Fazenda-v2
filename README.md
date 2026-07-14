@@ -1,18 +1,111 @@
-## Getting Started
+# 🌱 Sistema de Gestão de Fazenda
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Sistema desenvolvido em Java para auxiliar no gerenciamento de uma fazenda de café, permitindo controlar funcionários, frota, talhões, registros de serviços e gerar relatórios administrativos.
 
-## Folder Structure
+> Projeto desenvolvido com foco em programação orientada a objetos, organização em camadas e persistência de dados utilizando arquivos CSV.
 
-The workspace contains two folders by default, where:
+---
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## 📚 Funcionalidades
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- 👨‍🌾 Cadastro e gerenciamento de funcionários
+- 🚜 Cadastro e gerenciamento da frota
+- 🌾 Cadastro de talhões
+- 📋 Registro de serviços realizados
+- 📊 Geração de relatórios
+- 💾 Persistência dos dados em arquivos CSV
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+---
 
-## Dependency Management
+## 🛠 Tecnologias utilizadas
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- Java
+- Programação Orientada a Objetos (POO)
+- Manipulação de arquivos (CSV)
+- Visual Studio Code
+
+---
+
+## 📁 Estrutura do projeto
+
+```
+src/
+│
+├── Equipe/
+├── Frota/
+├── Talhoes/
+├── Registros/
+├── Relatorios/
+│
+├── SistemaPrincipal.java
+└── MercadoCafe.java
+```
+
+Cada pacote é responsável por um módulo específico do sistema, facilitando manutenção e organização do código.
+
+---
+
+## ▶ Como executar
+
+1. Clone o repositório
+
+```bash
+git clone https://github.com/seuusuario/sistema-gestao-fazenda.git
+```
+
+2. Abra o projeto no Visual Studio Code ou em sua IDE Java preferida.
+
+3. Compile o projeto.
+
+4. Execute a classe:
+
+```
+SistemaPrincipal.java
+```
+
+---
+
+## 💾 Persistência
+
+Os dados do sistema são armazenados na pasta:
+
+```
+banco/
+```
+
+Arquivos utilizados:
+
+- funcionarios.csv
+- frota.csv
+- talhoes.csv
+- registros.csv
+
+Assim, as informações permanecem salvas mesmo após encerrar a aplicação.
+
+---
+
+## 📌 Conceitos aplicados
+
+- Programação Orientada a Objetos
+- Encapsulamento
+- Organização em pacotes
+- Separação de responsabilidades
+- Persistência em arquivos
+- Manipulação de coleções
+- Menus interativos no terminal
+
+---
+
+## 🚀 Melhorias futuras
+
+- Migração da persistência para banco de dados (MySQL ou PostgreSQL)
+- Interface gráfica utilizando JavaFX
+- Sistema de autenticação de usuários
+- Dashboard com indicadores da fazenda
+- Testes unitários utilizando JUnit
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por Rocha como projeto de estudos para aprofundar conhecimentos em Java e Programação Orientada a Objetos.
